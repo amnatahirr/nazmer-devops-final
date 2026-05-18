@@ -9,11 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout code
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      # 2. Setup Node
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -33,10 +31,25 @@ jobs:
         working-directory: ./backend
         run: npm install
 
-      # (Optional test step)
-      - name: Run Backend Tests
+      - name: Start Backend Server
         working-directory: ./backend
-        run: echo "No tests defined"
+        run: nohup node server.js &
+
+      - name: Start Frontend Server
+        working-directory: ./frontend
+        run: nohup npm start &
+
+      - name: Wait for servers
+        run: sleep 15
+
+      # ================= SELENIUM TESTS =================
+      - name: Install Test Dependencies
+        working-directory: ./tests
+        run: npm install
+
+      - name: Run Selenium Tests
+        working-directory: ./tests
+        run: npm test
 
       # ================= DOCKER =================
       - name: Login to Docker Hub
@@ -52,3 +65,8 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/nazmer-backend
           docker push ${{ secrets.DOCKER_USERNAME }}/nazmer-frontend
+
+      # ================= KUBERNETES =================
+      - name: Deploy to Kubernetes
+        run: |
+          echo "kubectl apply -f k8s/*.yaml"
