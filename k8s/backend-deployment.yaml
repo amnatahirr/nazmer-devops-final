@@ -17,3 +17,8 @@ spec:
           image: amnatahirrrr/nazmer-backend:latest
           ports:
             - containerPort: 5000
+          env:
+            - name: MONGODB_URI
+              value: "mongodb://mongo-service:27017/nazmer"
+            - name: MONGO_URL
+              value: "mongodb://mongo-service:27017/nazmer"
