@@ -32,10 +32,22 @@ jobs:
       - name: Install Backend Dependencies
         working-directory: ./backend
         run: npm install
+        
+# ================= SELENIUM TESTS =================
+      - name: Install Test Dependencies
+        working-directory: ./tests
+        run: npm install
 
-      - name: Run Backend Tests
-        working-directory: ./backend
-        run: npm test || true   # prevents pipeline crash if no tests
+      - name: Start Frontend for Tests
+        working-directory: ./frontend
+        run: nohup npm start &
+
+      - name: Wait for frontend
+        run: sleep 20
+
+      - name: Run Selenium Tests
+        working-directory: ./tests
+        run: node frontend.test.js
 
       # ================= DOCKER BUILD =================
       - name: Login to Docker Hub
