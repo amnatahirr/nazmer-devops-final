@@ -7,12 +7,17 @@ describe("Frontend UI Tests - Clothing Website", function () {
 
     let driver;
 
-    before(async () => {
-        driver = await new Builder()
-            .forBrowser("chrome")
-            .setChromeOptions(new chrome.Options())
-            .build();
-    });
+  before(async () => {
+    const options = new chrome.Options();
+    options.addArguments("--headless");
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+
+    driver = await new Builder()
+        .forBrowser("chrome")
+        .setChromeOptions(options)
+        .build();
+});
 
     after(async () => {
         await driver.quit();

@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "frontend.test.js",
   "scripts": {
-    "test": "mocha test.js"
+    "test": "mocha frontend.test.js --timeout 30000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "chai": "^4.3.10",
     "selenium-webdriver": "^4.44.0"
   },
   "devDependencies": {
