@@ -18,7 +18,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/nazmer
+      - MONGODB_URI=mongodb+srv://amna:amna@cluster0.tet1ma3.mongodb.net/nazmer?appName=Cluster0
       - JWT_SECRET=yourSuperSecretKey123
       - JWT_EXPIRE=7d
     depends_on:
