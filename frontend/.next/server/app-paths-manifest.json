@@ -1,5 +1,10 @@
 {
+  "/not-found": "app/not-found.js",
   "/page": "app/page.js",
-  "/shop/page": "app/shop/page.js",
-  "/checkout/page": "app/checkout/page.js"
+  "/admin/products/page": "app/admin/products/page.js",
+  "/admin/add-product/page": "app/admin/add-product/page.js",
+  "/admin/categories/page": "app/admin/categories/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/admin/homepage-images/page": "app/admin/homepage-images/page.js",
+  "/admin/orders/page": "app/admin/orders/page.js"
 }

@@ -1,4 +1,4 @@
-// File: /workspaces/Nazmer/frontend/src/app/layout.tsx
+// File: /Users/mac/Documents/GitHub/nazmer-devops-final/Nazmer-main/frontend/src/app/layout.tsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
