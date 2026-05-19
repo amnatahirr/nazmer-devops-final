@@ -8,20 +8,7 @@ require("dotenv").config()
 const app = express()
 
 // Enhanced CORS configuration
-app.use(
-  cors({
-    origin: [
-      "https://nazmer.vercel.app",
-      "https://www.nazmer.com",
-      "http://localhost:3000",
-      "https://hearty-connection-production.up.railway.app",
-    ].filter(Boolean),
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
-    exposedHeaders: ["Content-Disposition"],
-  }),
-)
+app.use(cors({ origin: "*" }))
 
 // Middleware
 app.use(express.json({ limit: "50mb" }))

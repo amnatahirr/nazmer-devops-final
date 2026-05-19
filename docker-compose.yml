@@ -1,7 +1,6 @@
 version: "3.8"
 
 services:
-
   mongo:
     image: mongo:6
     container_name: mongodb
@@ -31,7 +30,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:5000
+      - NEXT_PUBLIC_API_URL=http://68.210.41.60:5000
     depends_on:
       - backend
 
